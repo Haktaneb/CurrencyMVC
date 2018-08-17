@@ -11,12 +11,11 @@ namespace CurrencyMVC.Controllers
     public class CurrencyController : Controller
     {
         private readonly IBankCurrencyServices bankCurrencyServices;
-        private readonly IEmailNotifier emailNotifier;
+        
 
-        public CurrencyController(IBankCurrencyServices bankCurrencyServices, IEmailNotifier emailNotifier)
+        public CurrencyController(IBankCurrencyServices bankCurrencyServices)
         {
             this.bankCurrencyServices = bankCurrencyServices;
-            this.emailNotifier = emailNotifier;
         }
         public IActionResult Index()
         {

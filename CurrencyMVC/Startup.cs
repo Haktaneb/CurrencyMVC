@@ -23,7 +23,7 @@ namespace CurrencyMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IBankCurrencyServices, BankCurrencyServices>();
-            services.AddTransient<IEmailNotifier, EmailNotifier>();
+          
             services.AddMvc();
         }
 

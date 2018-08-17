@@ -11,17 +11,13 @@ namespace CurrencyProj.Services
 {
     public class BankCurrencyServices : IBankCurrencyServices
     {
-        private readonly IEmailNotifier emailNotifier;
-        public BankCurrencyServices(IEmailNotifier emailNotifier)
-        {
-            this.emailNotifier = emailNotifier;
-        }
+        
+     
         public List<ComparedCurrency> GetComparedCurrencies(List<CurrencyIsBank> iBCurrency, List<CurrencyLine> yKCurrency)
         {
             List<ComparedCurrency> comparedCurrencies = new List<ComparedCurrency>();
             float number = 2;
-            string body = "";
-            body += "CODE------------------ALIŞ---------------SATIŞ\n";
+         
            
             foreach (var item in yKCurrency)
             {
@@ -34,13 +30,12 @@ namespace CurrencyProj.Services
                     comparedCurrency.Code = currency.code;
                     comparedCurrency.Buy = (currency.fxRateBuy + item.buy) / number;
                     comparedCurrency.Sell = (currency.fxRateSell + item.sell) / number;
-                    body +="<br>"+ comparedCurrency.Code + "---------------" + comparedCurrency.Buy + "---------------" + comparedCurrency.Sell ;
+                    
                  
                     comparedCurrencies.Add(comparedCurrency);
                     
                 }        
             }
-            emailNotifier.MailSender(body);
             return comparedCurrencies;
         }
 
