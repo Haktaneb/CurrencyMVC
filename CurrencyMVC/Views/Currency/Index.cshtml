@@ -1,0 +1,24 @@
+﻿
+@model CurrencyMVC.Models.CurrencyViewModel
+@{
+   ViewData["Title"] = "Random";
+}
+
+
+
+<table style="border:solid 2px">
+    <tr>
+        <th>Code</th>
+        <th>Buy</th>
+        <th>Sell</th>
+    </tr>
+    @foreach (var item in Model.ComparedCurrencies)
+    {
+        <tr>
+            <td>@item.Code</td>
+            <td>@item.Buy</td>
+            <td>@item.Sell</td>
+        </tr>
+    }
+
+</table>
