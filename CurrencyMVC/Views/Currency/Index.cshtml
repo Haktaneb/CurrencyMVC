@@ -1,24 +1,63 @@
 ﻿
 @model CurrencyMVC.Models.CurrencyViewModel
+
 @{
-   ViewData["Title"] = "Random";
+    ViewData["Title"] = "Random";
 }
 
-
-
-<table style="border:solid 2px">
-    <tr>
-        <th>Code</th>
-        <th>Buy</th>
-        <th>Sell</th>
-    </tr>
-    @foreach (var item in Model.ComparedCurrencies)
-    {
+<link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css?v=2005">
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<div style="float:left">
+    <h2 style="text-align:center;color:red"> Güncel Kur Bilgileri</h2>
+    <table class="table">
+        <caption class="Caption">Ortalama Kur Bilgisi</caption>
         <tr>
-            <td>@item.Code</td>
-            <td>@item.Buy</td>
-            <td>@item.Sell</td>
-        </tr>
-    }
 
-</table>
+            <th>Code</th>
+            <th>Buy</th>
+            <th>Sell</th>
+        </tr>
+        @foreach (var item in Model.ComparedCurrencies)
+        {
+            <tr>
+                <td class="Code">@item.Code</td>
+                <td class="Currencies">@item.Buy</td>
+                <td class="Currencies">@item.Sell</td>
+            </tr>
+        }
+
+    </table>
+    <table class="table">
+        <caption class="Caption"> İş Bankası</caption>
+        <tr>
+            <th>Code</th>
+            <th>Buy</th>
+            <th>Sell</th>
+        </tr>
+        @foreach (var item in Model.CurrencyIsBanks)
+        {
+            <tr>
+                <td class="Code">@item.code</td>
+                <td class="Currencies">@item.fxRateBuy</td>
+                <td class="Currencies">@item.fxRateSell</td>
+            </tr>
+        }
+    </table>
+
+    <table class="table">
+        <caption class="Caption">Yapı Kredi</caption>
+        <tr>
+            <th>Code</th>
+            <th>Buy</th>
+            <th>Sell</th>
+        </tr>
+        @foreach (var item in Model.CurrencyYapiKredis)
+        {
+            <tr>
+                <td class="Code">@item.code</td>
+                <td class="Currencies">@item.buy</td>
+                <td class="Currencies">@item.sell</td>
+            </tr>
+        }
+    </table>
+</div>

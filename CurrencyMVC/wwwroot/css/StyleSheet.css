@@ -1,0 +1,23 @@
+﻿.table {
+    border: solid 2px;
+    float:left
+}
+    .table .Code {
+        
+        font-weight:bold;
+        color:blue;
+        border:1px solid black;
+            
+    }
+    .table .Currencies {
+        text-align:center;
+        font-weight:bold;
+        border:1px solid black;
+    }
+    .table .Caption {
+        text-align:center;
+        font-weight:bold;
+        color:red;
+        font-size:15px;
+    }
+   
